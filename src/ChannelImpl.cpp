@@ -459,6 +459,8 @@ bool bytesEqual(amqp_bytes_t r, amqp_bytes_t l) {
 
 boost::uint32_t ChannelImpl::ComputeBrokerVersion(
     amqp_connection_state_t state) {
+    return 0x040101;
+  /*
   const amqp_table_t *properties = amqp_get_server_properties(state);
   const amqp_bytes_t version = amqp_cstring_bytes("version");
   amqp_table_entry_t *version_entry = NULL;
@@ -489,6 +491,7 @@ boost::uint32_t ChannelImpl::ComputeBrokerVersion(
       boost::lexical_cast<boost::uint32_t>(version_components[2]);
   return (version_major & 0xFF) << 16 | (version_minor & 0xFF) << 8 |
          (version_patch & 0xFF);
+  */
 }
 
 }  // namespace Detail
